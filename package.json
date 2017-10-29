@@ -1,0 +1,15 @@
+{
+  "name": "witaibot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node chat.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "nconf": "^0.8.5",
+    "node-wit": "^4.3.0"
+  }
+}
