@@ -4,12 +4,31 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node chat.js"
+    "start": "nodemon chat.js",
+    "fedev": "webpack-dev-server --open",
+    "fedev_build": "webpack"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "nconf": "^0.8.5",
-    "node-wit": "^4.3.0"
+    "node-wit": "^4.3.0",
+    "nodemon": "^1.12.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-object-rest-spread": "^0.0.0",
+    "babel-plugin-syntax-object-rest-spread": "^6.13.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "html-webpack-plugin": "^2.30.1",
+    "path": "^0.12.7",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.3"
   }
 }
