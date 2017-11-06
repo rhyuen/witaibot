@@ -3,9 +3,51 @@
         <meta charset="UTF-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>witaibot</title>       
-        <meta name="description" content="A page for running groups in Vancouver">        
-        <link rel="icon" type="image/png" href="">        
+        <title>Robert's Bot</title>       
+        <meta name="description" content="A Chat bot about Robert.">        
+        <link rel="icon" type="image/png" href="">
+        <style>            
+            html{                
+            }
+            body{
+                margin: 0;
+            }
+            #app{
+
+            }
+
+            .history{                
+            }
+            .history__message--bot{
+                background: lightblue;
+                color: black;
+            }
+            .history__message--user{
+                background: blue;
+                color: white;
+            }
+
+            .form{
+                width: 100%;
+                position: fixed;
+                background: lightgrey;
+                bottom: 0;                
+                height: 10rem;
+                box-sizing: border-box;
+                padding: 1rem;
+            }
+            .form__container{
+                width: 100%;
+                background: white;                
+
+            }
+            .form__container__input{
+                width: 100%;
+                background: white;
+                font-size: 16px;                
+                border: 0;
+            }
+        </style>        
     </head>
     <body>
         <div id="app"></div>

@@ -4,7 +4,7 @@ import TextForm from "./textform.jsx";
 
 class App extends Component{
     state = {
-        history: ["one", "two", "three"],
+        history: [],
         typeFormValue: ""
     }
 
@@ -20,6 +20,17 @@ class App extends Component{
 
     handleTypeFormSubmit = (e) => {        
         e.preventDefault();
+        const updated = this.state.history.concat({
+            sender: "user", 
+            message: this.state.typeFormValue
+        });        
+        this.setState(prevState => {                        
+            return {
+                ...prevState,
+                history: updated,
+                typeFormValue: ""
+            };                
+        });
         const fetchOptions = {
             method: "post",
             headers:{
@@ -32,23 +43,36 @@ class App extends Component{
             .then(data => {  
                 if(data.message.entities.intent){
                     console.log(data.message.entities.intent[0].confidence);
-                    console.log(data.message.entities.intent[0].value);
-                }else{
-                    console.log("I can't handle that.");
+                    console.log(data.message.entities.intent[0].value);     
+                    const response = this.state.history.concat({
+                        sender: "bot",
+                        message: `CONFIDENCE: ${data.message.entities.intent[0].confidence} VALUE: ${data.message.entities.intent[0].value}`
+                    });
+
+                    this.setState(prevState => {
+                        return {
+                            ...prevState,
+                            history: response
+                        };
+                    });
+                }else{                    
+                    const failureMessage = this.state.history.concat({
+                        sender: "bot",
+                        message: "Sorry, I can't handle that question."
+                    });
+                    this.setState(prevState => {
+                        return {
+                            ...prevState,
+                            history: failureMessage                            
+                        };
+                    });
                 }
+
+               
                 
             }).catch(err => {
                 console.log(err);
-            });
-
-        const updated = this.state.history.concat(this.state.typeFormValue);        
-        this.setState(prevState => {                        
-            return {
-                ...prevState,
-                history: updated,
-                typeFormValue: ""
-            };
-        });
+            });              
     }
 
     render(){        
