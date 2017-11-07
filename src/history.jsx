@@ -4,11 +4,15 @@ export default ({messages}) => (
     <div className = "history">
         {
             messages.map((msg, index) => {
-                const colour = (msg.sender === "bot") ? "bot" : "user";
+                const sender = (msg.sender === "bot") ? "bot" : "user";
                 return (
-                    <div key = {index} 
-                        className = {`history__message--${colour}`}>
-                        {msg.message}
+                    <div key = {index} className = "history__message">
+                        <div className = {`history__message__container history__message__container--${sender}-position`}>
+                            <div className = {`history__message__container__text 
+                                history__message__container__text--${sender}-color`}>
+                                {msg.message}
+                            </div>
+                        </div>
                     </div>
                 );
             })

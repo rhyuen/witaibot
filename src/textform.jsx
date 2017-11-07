@@ -9,7 +9,7 @@ export default ({onFormSubmit, onFormChange, onFormValue}) => (
                 name = "typeform"
                 onChange = {onFormChange}
                 value = {onFormValue}
-                placeholder = "share your thoughts"/>
+                placeholder = "What ails you, human?"/>            
         </form>
     </div>
 );

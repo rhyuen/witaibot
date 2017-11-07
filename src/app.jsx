@@ -1,10 +1,26 @@
 import React, {Component} from "react";
 import History from "./history.jsx";
 import TextForm from "./textform.jsx";
+import Header from "./header.jsx";
 
 class App extends Component{
     state = {
-        history: [],
+        history: [{
+            sender: "bot",
+            message: "Bot Message"
+        }, {
+            sender: "bot",
+            message: "Another Bot message."
+        }, {
+            sender: "user",
+            message: "user message"
+        }, {
+            sender: "user",
+            message: "another user message."
+        }, {
+            sender: "bot",
+            message: "bot bot message."
+        }],
         typeFormValue: ""
     }
 
@@ -77,7 +93,8 @@ class App extends Component{
 
     render(){        
         return (
-            <div>
+            <div className = "root">
+                <Header/>
                 <History messages = {this.state.history}/>
                 <TextForm
                     onFormSubmit = {this.handleTypeFormSubmit}
